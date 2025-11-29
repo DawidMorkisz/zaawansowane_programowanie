@@ -1,7 +1,4 @@
-names = ["Dawid", "Piotr", "Ania", "Maciej", "Adam"]
+def hello(name: str, surname:str) -> str:
+    return f"Cześć {name} {surname}!"
 
-def show_names(names):
-    for name in names:
-        print(name)
-
-show_names(names)
+print(hello("Dawid", "Morkisz"))

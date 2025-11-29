@@ -1,7 +1,8 @@
-def show_even_numbers(numbers):
-    for number in numbers:
-        if number % 2 == 0:
-            print(number)
+def is_even(number: int) -> bool:
+    return number % 2 == 0
 
-numbers = list(range(1, 11))
-show_even_numbers(numbers)
+odd_result = is_even(7)
+print(odd_result)
+
+even_result = is_even(4)
+print(even_result)
