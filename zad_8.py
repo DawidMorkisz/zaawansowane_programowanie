@@ -1,6 +1,7 @@
 import argparse
 import requests
 
+
 class Brewery:
     def __init__(self, id: str, name: str, city: str, country: str, phone: str | None):
         self.id = id
@@ -11,6 +12,7 @@ class Brewery:
 
     def __str__(self) -> str:
         return f"{self.name} | {self.city}, {self.country} | tel: {self.phone}"
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--city", type=str, help="City name filter", required=False)
@@ -33,6 +35,7 @@ breweries: list[Brewery] = [
     )
     for item in data
 ]
+
 
 for brewery in breweries:
     print(brewery)
