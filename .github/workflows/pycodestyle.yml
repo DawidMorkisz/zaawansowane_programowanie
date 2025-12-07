@@ -25,4 +25,4 @@ jobs:
 
       - name: Run pycodestyle
         run: |
-          python -m pycodestyle -exclude=venv .
+          python -m pycodestyle --exclude=venv .
