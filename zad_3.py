@@ -3,5 +3,6 @@ def show_even_numbers(numbers):
         if number % 2 == 0:
             print(number)
 
+
 numbers = list(range(1, 11))
 show_even_numbers(numbers)
