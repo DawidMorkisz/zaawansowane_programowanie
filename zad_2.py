@@ -1,6 +1,3 @@
-from datetime import date
-
-
 class Library:
     def __init__(self, city, street, zip_code, open_hours: str, phone):
         self.city = city
@@ -58,20 +55,3 @@ class Order:
                 f"Books:\n  {books_info}\n")
 
 
-library1 = Library("Warsaw", "Rumiankowa 6", "00-001", "9:00-17:00", "123-456-789")
-library2 = Library("Krakow", "Warszawska 5", "30-002", "10:00-18:00", "987-654-321")
-
-book1 = Book(library1, date(2021, 5, 10), "Adam", "Mickiewicz", 300)
-book2 = Book(library1, date(2019, 7, 20), "Henryk", "Sienkiewicz", 500)
-book3 = Book(library2, date(2020, 3, 15), "Juliusz", "Słowacki", 250)
-book4 = Book(library2, date(2018, 11, 5), "Bolesław", "Prus", 400)
-book5 = Book(library1, date(2022, 1, 25), "Wisława", "Szymborska", 150)
-
-employee1 = Employee("Jan", "Kowalski", date(2020, 1, 10), date(1990, 5, 20), "Warsaw", "Rumiankowa 6")
-employee2 = Employee("Anna", "Nowak", date(2019, 2, 15), date(1985, 8, 12), "Krakow", "Warszawska 5")
-employee3 = Employee("Piotr", "Wiśniewski", date(2021, 6, 1), date(1992, 11, 30), "Gdańsk", "Morska 12")
-
-order1 = Order(employee1, [book1, book3, book5], date.today())
-order2 = Order(employee2, [book2, book4], date.today())
-
-print(f"{order1}\n\n{order2}")

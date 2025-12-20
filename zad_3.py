@@ -30,10 +30,3 @@ class Flat(Property):
                 f"Rooms: {self.rooms}\n"
                 f"Price: {self.price} PLN\n"
                 f"Floor: {self.floor}")
-
-
-house = House(area=120, rooms=5, price=500000, address="Warsaw, Kopernika 8", plot=300)
-
-flat = Flat(area=60, rooms=3, price=300000, address="Krakow, Warszawska 12", floor=2)
-
-print(f'{house}\n\n{flat}')
