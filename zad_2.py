@@ -53,5 +53,3 @@ class Order:
         return (f"Order Date: {self.order_date}\n"
                 f"Processed by:\n {self.employee}\n"
                 f"Books:\n  {books_info}\n")
-
-

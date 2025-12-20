@@ -6,3 +6,4 @@ class Student:
     def is_passed(self):
         average = sum(self.marks) / len(self.marks)
         return average > 50
+    
