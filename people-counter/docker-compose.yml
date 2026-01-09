@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  api:
+    image: python:3.10
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "pip install -r requirements.txt && uvicorn api.main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+
+  worker:
+    image: python:3.10
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "
+      apt-get update && \
+      apt-get install -y libglib2.0-0 libsm6 libxext6 libxrender-dev libgomp1 libgl1 && \
+      pip install --no-cache-dir -r requirements.txt && \
+      python run_worker.py"
+    depends_on:
+      - rabbitmq
+

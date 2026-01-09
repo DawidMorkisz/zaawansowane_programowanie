@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pika
+opencv-python
+numpy
+python-multipart
+aiofiles
+aiohttp
