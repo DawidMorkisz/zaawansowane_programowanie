@@ -1,50 +1,67 @@
-from collections import Counter
+def is_palindrome(text: str) -> bool:
+    cleaned = ''.join(text.lower().split())
+    return cleaned == cleaned[::-1]
 
 
-# zad 1
-def is_palindrome(text):
-    return text == text[::-1]
-
-
-# zad 2
-def fibonacci(n):
+def fibonacci(n: int) -> int:
     if n < 0:
-        raise ValueError("n must be >= 0")
-    if n in (0, 1):
-        return n
-    return fibonacci(n - 1) + fibonacci(n - 2)
+        raise ValueError("n musi być >= 0")
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
 
 
-# zad 3
-def count_vowels(string):
-    vowels = set("aeiou")
-    return sum(1 for char in string.lower() if char in vowels)
+def count_vowels(text: str) -> int:
+    vowels = "aeiouyąęó"
+    count = 0
+    for char in text.lower():
+        if char in vowels:
+            count += 1
+    return count
 
 
-# zad 4
-def calculate_discount(price, discount):
-
+def calculate_discount(price: float, discount: float) -> float:
+    if not 0 <= discount <= 1:
+        raise ValueError("Discount musi być w zakresie 0–1")
     return price * (1 - discount)
 
 
-# zad 5
-def flatten_list(nested_list):
-    return [item for sublist in nested_list for item in sublist]
+def flatten_list(nested_list: list) -> list:
+    result = []
+    for item in nested_list:
+        if isinstance(item, list):
+            result += flatten_list(item)
+        else:
+            result.append(item)
+    return result
 
 
-# zad 6
-def word_frequencies(text):
-    words = text.split()
-    return Counter(words)
+def word_frequencies(text: str) -> dict:
+    cleaned = ''
+    for char in text:
+        if char.isalnum() or char.isspace():
+            cleaned += char.lower()
+    words = cleaned.split()
+    freq = {}
+    for word in words:
+        if word in freq:
+            freq[word] += 1
+        else:
+            freq[word] = 1
+    return freq
 
 
-# zad 7
-def is_prime(n):
+def is_prime(n: int) -> bool:
     if n < 2:
         return False
-
-    for i in range(2, int(n ** 0.5) + 1):
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    i = 3
+    while i * i <= n:
         if n % i == 0:
             return False
-
+        i += 2
     return True
