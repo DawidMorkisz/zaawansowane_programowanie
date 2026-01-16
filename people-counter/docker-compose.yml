@@ -12,6 +12,8 @@ services:
     working_dir: /app
     volumes:
       - .:/app
+    environment:
+      RABBIT_HOST: "rabbitmq"
     command: bash -c "pip install -r requirements.txt && uvicorn api.main:app --host 0.0.0.0 --port 8000"
     ports:
       - "8000:8000"
@@ -30,4 +32,3 @@ services:
       python run_worker.py"
     depends_on:
       - rabbitmq
-

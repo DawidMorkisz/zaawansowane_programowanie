@@ -10,14 +10,14 @@ from worker.detector import detect_people
 RABBIT_HOST = "rabbitmq"
 QUEUE = "people_detection"
 
-os.makedirs("results", exist_ok=True)
+os.makedirs("processed", exist_ok=True)
 
 
 def callback(ch, method, properties, body):
     task = json.loads(body)
     task_id = task["task_id"]
     image_path = task["image_path"]
-    output = f"results/{task_id}.jpg"
+    output = f"processed/{task_id}.jpg"
 
     try:
         update_task(task_id, status="processing")

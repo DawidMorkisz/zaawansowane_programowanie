@@ -1,0 +1,12 @@
+{
+  "49f3d49b-a6f2-4698-a7ae-4f61dc3f459f": {
+    "status": "done",
+    "people_count": 8,
+    "output_image": "processed/49f3d49b-a6f2-4698-a7ae-4f61dc3f459f.jpg"
+  },
+  "d3777d7b-8f57-48cc-b8fb-cbce987585eb": {
+    "status": "done",
+    "people_count": 3,
+    "output_image": "processed/d3777d7b-8f57-48cc-b8fb-cbce987585eb.jpg"
+  }
+}
